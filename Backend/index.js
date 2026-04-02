@@ -13,6 +13,10 @@ app.get(("/backend"),(req,res)=>{
         {Grey:"Hell from Grey"}]
     )
 })
+app.post("/backend", (req, res) => {
+    console.log(req.body); 
+    res.status(200).send("Got it!");
+});
 app.listen(port,()=>{
     console.log(`Server on port 3000`)
 })

@@ -9,16 +9,31 @@ function App() {
     setData(results)
     console.log(results)
   }
-  const send = async()=>{
-    const info={Grey: "Hello from React by Grey"}
-    await fetch("http://localhost:3000/backend", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(info), 
-    });
-  }
+  const send = async () => {
+    const info = { Grey: "Hello from React by Grey" };
+    
+    // FIX 1: Add "/backend" to the end of the URL to match your server route
+    // FIX 2: Added a console.log so you can see it starting in your browser
+    console.log("Sending data to Render..."); 
+
+    try {
+      const res = await fetch("https://connect-2s8t.onrender.com/backend/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+
+      if (res.ok) {
+        console.log("Success! Data reached the server.");
+      } else {
+        console.log("Server received it but sent an error:", res.status);
+      }
+    } catch (error) {
+      console.error("The request failed to even leave the browser:", error);
+    }
+  };
 
   return (
     <>
