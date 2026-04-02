@@ -12,8 +12,7 @@ function App() {
   const send = async () => {
     const info = { Grey: "Hello from React by Grey" };
     
-    // FIX 1: Add "/backend" to the end of the URL to match your server route
-    // FIX 2: Added a console.log so you can see it starting in your browser
+
     console.log("Sending data to Render..."); 
 
     try {
