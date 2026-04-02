@@ -3,10 +3,10 @@ import cors from "cors"
 const app=express()
 
 const port=3000;
-
-app.use(cors({
-  origin: "http://localhost:5174"
-}));
+app.use(cors())
+// app.use(cors({
+//   origin: "http://localhost:5174"
+// }));
 
 app.get(("/backend"),(req,res)=>{
     res.json([{message: "Hello from backend"},
